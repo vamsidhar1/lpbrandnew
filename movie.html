@@ -51,8 +51,7 @@ button:hover {
     <input type="text" id="movieInput" placeholder="Enter a movie title">
     <button onclick="getMovieData()">Get Movie Data</button>
     <div id="movieInfo"></div>
-<script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js">
-    </script>
+<script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
     <script>
       function getMovieData() {
         const apiKey = '64671f31'; // Replace with your actual API key
@@ -76,46 +75,70 @@ button:hover {
                 <p>IMDB Rating: ${data.imdbRating} (${data.imdbVotes} votes)</p>
               `;
               {
+
               var notificationHandler = function (data) {
+
                 // Do something with the notifications
+
               };
 
  
 
               var focusHandler = function () {
+
                 // Do something when the visitor is focused
+
                 // Assume the visitor is focused to begin with
+
               };
 
  
 
               var blurHandler = function () {
+
                 // Do something when the visitor is blurred
+
                 // Assume the visitor is focused to begin with
+
               };
+
             }
+
             lpTag.agentSDK.init({
+
               notificationCallback: notificationHandler,
+
               visitorFocusedCallback: focusHandler,
+
               visitorBlurredCallback: blurHandler,
+
             });
+
             const notifyWhenDone = function (err) {
+
               if (err) {
+
                 console.log("Error occured in notifyWhenDone: " + err);
+
               }
+
             };
+
             const commandData = {
+
               text: "Title: " + data.Title + ", Year: " + data.Year,
+
             };
+
             lpTag.agentSDK.command(
+
               lpTag.agentSDK.cmdNames.write,
+
               commandData,
+
               notifyWhenDone
+
             );
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-          });
             } else {
               movieInfo.innerHTML = `<p>Error: Movie not found or API request failed</p>`;
             }

@@ -1,183 +1,58 @@
 <!DOCTYPE html>
-
- 
-
 <html lang="en">
-
- 
-
 <head>
-
- 
-
   <meta charset="UTF-8">
-
- 
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- 
-
   <title>Authenticated Space</title>
-
- 
-
   <style>
-
- 
-
     body {
-
- 
-
       font-family: Arial, sans-serif;
-
- 
-
       text-align: center;
-
- 
-
     }
-
- 
-
- 
-
- 
-
     #app {
-
- 
-
       padding: 20px;
-
- 
-
     }
 
- 
-
- 
-
- 
-
-    input {
-
- 
+     input {
 
       width: 100%;
 
- 
-
       padding: 10px;
-
- 
 
       margin-bottom: 10px;
 
- 
-
       box-sizing: border-box;
 
- 
-
     }
-
- 
-
- 
-
- 
 
     #user-info {
 
- 
-
       margin-top: 20px;
 
- 
-
     }
-
- 
-
- 
-
- 
 
     .product {
 
- 
-
       border: 1px solid #ccc;
-
- 
 
       padding: 10px;
 
- 
-
       margin: 10px;
-
- 
-
       display: inline-block;
-
- 
-
     }
-
- 
-
- 
-
- 
 
     .product-info {
-
- 
-
       font-weight: bold;
-
- 
-
       margin-bottom: 5px;
-
- 
-
     }
-
- 
-
- 
-
- 
 
     #product-list {
-
- 
-
       margin-top: 20px;
-
- 
 
     }
 
- 
-
- 
-
- 
-
     #total {
-
- 
-
       font-weight: bold;
-
- 
-
     }
 
  
@@ -448,121 +323,59 @@
 
   <!-- END LivePerson Monitor -->
 
- 
-
 </head>
-
- 
 
 <body>
 
- 
-
     <h1>Welcome to Authenticated Space</h1>
 
- 
-
     <div id="products">
-
- 
-
       <div class="product">
-
- 
-
         <div class="product-info">Product 1</div>
-
- 
 
         <div class="product-info">Price: $10.00</div>
 
- 
-
         <button onclick="addToCart('Product 1', 10.00)">Add to Cart</button>
-
- 
 
       </div>
 
- 
-
       <div class="product">
-
- 
 
         <div class="product-info">Product 2</div>
 
- 
-
         <div class="product-info">Price: $15.00</div>
-
- 
 
         <button onclick="addToCart('Product 2', 15.00)">Add to Cart</button>
 
- 
-
       </div>
 
- 
-
       <div class="product">
-
- 
 
         <div class="product-info">Product 3</div>
 
- 
-
         <div class="product-info">Price: $15.20</div>
-
- 
 
         <button onclick="addToCart('Product 3', 15.20)">Add to Cart</button>
 
- 
-
       </div>
-
- 
 
       <div class="product">
 
- 
-
         <div class="product-info">Product 4</div>
-
- 
 
         <div class="product-info">Price: $11.10</div>
 
- 
-
         <button onclick="addToCart('Product 4', 11.10)">Add to Cart</button>
-
- 
 
       </div>
 
- 
-
     </div>
-
- 
 
     <div id="total">Total cart value: $<span id="total-amount">0.00</span></div>
 
- 
-
     <!-- <button onclick="logout()">Logout</button> -->
 
- 
-
- 
-
   <script>
-
- 
 
     // let isAuthenticated = false;
 
@@ -578,179 +391,6 @@
 
     let totalAmount = 0;
 
- 
-
- 
-
- 
-
-    // function login() {
-
- 
-
-    //   const email = document.getElementById("email").value;
-
- 
-
-    //   const password = document.getElementById("password").value;
-
- 
-
- 
-
- 
-
-    //   // Simulate authentication (replace with your actual authentication logic)
-
- 
-
-    //   if (email === "user@example.com" && password === "password") {
-
- 
-
-    //     isAuthenticated = true;
-
- 
-
-    //     currentUser = email;
-
- 
-
-    //     alert("Login successful!");
-
- 
-
-    //     displayContent();
-
- 
-
-    //   } else {
-
- 
-
-    //     alert("Invalid email or password. Please try again.");
-
- 
-
-    //   }
-
- 
-
-    // }
-
- 
-
- 
-
- 
-
-    // function logout() {
-
- 
-
-    //   // Simulate logout
-
- 
-
-    //   isAuthenticated = false;
-
- 
-
-    //   currentUser = null;
-
- 
-
-    //   displayContent();
-
- 
-
-    //   clearProducts();
-
- 
-
-    //   clearCart();
-
- 
-
-    // }
-
- 
-
- 
-
- 
-
-    // function displayUserInfo() {
-
- 
-
-    //   const userInfoDiv = document.getElementById("user-info");
-
- 
-
-    //   if (isAuthenticated) {
-
- 
-
-    //     userInfoDiv.innerHTML = `Logged in as: ${currentUser}`;
-
- 
-
-    //   } else {
-
- 
-
-    //     userInfoDiv.innerHTML = "Not logged in";
-
- 
-
-    //   }
-
- 
-
-    // }
-
- 
-
- 
-
- 
-
-    // function displayContent() {
-
- 
-
-    //   const appDiv = document.getElementById("app");
-
- 
-
-    // }
-
- 
-
- 
-
- 
-
-    // function clearProducts() {
-
- 
-
-    //   const productsDiv = document.getElementById("product-list");
-
- 
-
-    //   productsDiv.innerHTML = "";
-
- 
-
-    // }
-
- 
-
- 
-
- 
 
     function addToCart(productName, price) {
 
@@ -782,34 +422,6 @@
 
     }
 
- 
-
- 
-
- 
-
-    // function clearCart() {
-
- 
-
-    //   cart = [];
-
- 
-
-    //   totalAmount = 0;
-
- 
-
-    //   document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
-
- 
-
-    // }
-
-
-    // Initial load, display unauthenticated content
-    // displayContent();
-
  lpTag.identities = [];
       lpTag.identities.push(identityfn);
 
@@ -828,11 +440,6 @@
         });
       }
 
- 
-
-      // var public_key = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1SU1LfVLPHCozMxH2Mo4lgOEePzNm0tRgeLezV6ffAt0gunVTLw7onLRnrq0/IzW7yWR7QkrmBL7jTKEn5u+qKhbwKfBstIs+bMY2Zkp18gnTxKLxoS2tFczGkPLPgizskuemMghRniWaoLcyehkd3qqGElvW/VDL5AaWTg0nLVkjRo9z+40RQzuVaE8AkAFmxZzow3x+VJYKdjykkJ0iT9wCS0DRTXu269V264Vf/3jvredZiKRkgwlL9xNAwxXFg0x/XFw005UWVRIkdgcKWTjpBP2dPwVZ4WWC+9aGVd+Gyn1o0CLelf4rEjGoXbAAEgAqeGUxrcIlbjXfbcmwIDAQAB
-
- 
 
       var id_token =
         "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIrOTcyLTMtNTU1NS01NTUiLCJpc3MiOiJodHRwczovL2p3dC5pbyIsImF1ZCI6ImFjYzpxYTU3MjIxNjc2IiwiZXhwIjoyMDM0OTcxOTMwLCJpYXQiOjE0NzE4OTk5NDIsImdpdmVuX25hbWUiOiJFaXRhbiIsImFjciI6ImxvYTEifQ.n9hYTeaeS03lccbdNnXMOpgZisHfJm9qrjZZhwX0vkC-eOafPnn4rqqqXL9aYJv_rvdSVKK_TFufITX_W9aDpyls9BFlvZTKjTjADohP1KGl-f8tDDrLQrrLrfN4ESPudOhR0_BS58AxiuaXePzAdPLsUmQx40IMNwkUjjEEM2dML7nQM5v0DRypaDuNpS3-6W_OBLghEnzr2wwmWjpOC1S3tT_U70lPLoCp9i5dYbs8VO9HRvzQ0I1Mbh58qVGGVNcolljXc0xicwlxN_65xad3iOP6DeQJyNH5-NYSnIISjTNjZoG2Dfzzwr5QXr_3h9ABgmYGfss4lRA4_5aBGw";

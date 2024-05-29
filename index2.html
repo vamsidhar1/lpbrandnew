@@ -38,78 +38,38 @@
       font-weight: bold;
     }
   </style>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Authenticated Space</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    #app {
-      padding: 20px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-    }
-    #user-info {
-      margin-top: 20px;
-    }
-    .product {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px;
-      display: inline-block;
-    }
-    .product-info {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    #product-list {
-      margin-top: 20px;
-    }
-    #total {
-      font-weight: bold;
-    }
-  </style>
   <!-- BEGIN LivePerson Monitor -->
   <script type="text/javascript">
-    window.lpTag = window.lpTag || {}; 'undefined' == typeof window.lpTag._tagCount ?
-    (window.lpTag = {
-      wl: lpTag.wl || null,
-      scp: lpTag.scp || null,
-      site: '3008406' || '',
-      section: lpTag.section || '',
-      tagletSection: lpTag.tagletSection || null,
-      autoStart: lpTag.autoStart !== !1,
-      ovr: lpTag.ovr || {},
+    window.lpTag=window.lpTag||{}; 'undefined'==typeof window.lpTag._tagCount?
+    (window.lpTag={
+      wl: lpTag.wl||null,
+      scp: lpTag.scp||null,
+      site: '3008406'||'',
+      section: lpTag.section||'',
+      tagletSection: lpTag.tagletSection||null,
+      autoStart: lpTag.autoStart!==!1,
+      ovr: lpTag.ovr||{},
       _v: '1.10.0',
       _tagCount: 1,
       protocol: 'https:',
       events: {
-        bind: function (t, e, i) {
-          lpTag.defer(function () { lpTag.events.bind(t, e, i) }, 0);
+        bind: function(t, e, i) {
+          lpTag.defer(function() { lpTag.events.bind(t, e, i) }, 0);
         },
-        trigger: function (t, e, i) {
-          lpTag.defer(function () { lpTag.events.trigger(t, e, i) }, 1);
+        trigger: function(t, e, i) {
+          lpTag.defer(function() { lpTag.events.trigger(t, e, i) }, 1);
         }
       },
-      defer: function (t, e) {
+      defer: function(t, e) {
         0 === e ? (this._defB = this._defB || [], this._defB.push(t))
-          : 1 === e ? (this._defT = this._defT || [], this._defT.push(t))
-            : (this._defL = this._defL || [], this._defL.push(t));
+        : 1 === e ? (this._defT = this._defT || [], this._defT.push(t))
+        : (this._defL = this._defL || [], this._defL.push(t));
       },
-      load: function (t, e, i) {
+      load: function(t, e, i) {
         var n = this;
-        setTimeout(function () { n._load(t, e, i) }, 0);
+        setTimeout(function() { n._load(t, e, i) }, 0);
       },
-      _load: function (t, e, i) {
+      _load: function(t, e, i) {
         var n = t;
         t || (n = this.protocol + '//' + (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site);
         var o = document.createElement('script');
@@ -118,30 +78,30 @@
         o.setAttribute('src', n);
         document.getElementsByTagName('head').item(0).appendChild(o);
       },
-      init: function () {
+      init: function() {
         this._timing = this._timing || {};
         this._timing.start = (new Date).getTime();
         var t = this;
         window.attachEvent ?
-          window.attachEvent('onload', function () { t._domReady('domReady') })
-          : (window.addEventListener('DOMContentLoaded', function () { t._domReady('contReady') }, !1),
-            window.addEventListener('load', function () { t._domReady('domReady') }, !1));
-        'undefined' === typeof window._lptStop && this.load();
-      },
-      start: function () { this.autoStart = !0 },
-      _domReady: function (t) {
-        this.isDom || (this.isDom = !0, this.events.trigger('LPT', 'DOM_READY', { t: t }));
-        this._timing[t] = (new Date).getTime();
-      },
-      vars: lpTag.vars || [],
-      dbs: lpTag.dbs || [],
-      ctn: lpTag.ctn || [],
-      sdes: lpTag.sdes || [],
-      hooks: lpTag.hooks || [],
-      identities: lpTag.identities || [],
-      ev: lpTag.ev || []
-    }, lpTag.init())
-      : window.lpTag._tagCount += 1;
+          window.attachEvent('onload', function() { t._domReady('domReady') })
+          : (window.addEventListener('DOMContentLoaded', function() { t._domReady('contReady') }, !1),
+            window.addEventListener('load', function() { t._domReady('domReady') }, !1));
+          'undefined' === typeof window._lptStop && this.load();
+        },
+        start: function() { this.autoStart = !0 },
+        _domReady: function(t) {
+          this.isDom || (this.isDom = !0, this.events.trigger('LPT', 'DOM_READY', { t: t }));
+          this._timing[t] = (new Date).getTime();
+        },
+        vars: lpTag.vars||[],
+        dbs: lpTag.dbs||[],
+        ctn: lpTag.ctn||[],
+        sdes: lpTag.sdes||[],
+        hooks: lpTag.hooks||[],
+        identities: lpTag.identities||[],
+        ev: lpTag.ev||[]
+      }, lpTag.init())
+    : window.lpTag._tagCount += 1;
   </script>
   <!-- END LivePerson Monitor -->
 </head>
@@ -179,10 +139,6 @@
       document.getElementById("cart-count-value").textContent = cart1.length;
     }
 
-    function getCurrentUrl() {
-      return window.location.href;
-    }
-
     function addToCart(productName, price) {
       cart1.push({ productName, price });
       totalAmount += price;
@@ -196,94 +152,6 @@
         total: totalAmount,
         currency: "USD", // CURRENCY CODE
         numItems: cart1.length, // NUMBER OF ITEMS IN CART
-        info: {
-          url: getCurrentUrl() // Adding the current URL to the cart information
-        }
-      });
-    }
-
-    lpTag.identities = [];
-    lpTag.identities.push(identityfn);
-
-    function identityfn(callback) {
-      callback({
-        sub: "+972-3-5555-555",
-        iss: "https://jwt.io",
-        aud: "acc:qa57221676",
-        exp: 2034971930,
-        iat: 1471899942,
-        given_name: "Eitan",
-        acr: "loa1",
-      });
-    }
-
-    var id_token =
-      "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIrOTcyLTMtNTU1NS01NTUiLCJpc3MiOiJodHRwczovL2p3dC5pbyIsImF1ZCI6ImFjYzpxYTU3MjIxNjc2IiwiZXhwIjoyMDM0OTcxOTMwLCJpYXQiOjE0NzE4OTk5NDIsImdpdmVuX25hbWUiOiJFaXRhbiIsImFjciI6ImxvYTEifQ.n9hYTeaeS03lccbdNnXMOpgZisHfJm9qrjZZhwX0vkC-eOafPnn4rqqqXL9aYJv_rvdSVKK_TFufITX_W9aDpyls9BFlvZTKjTjADohP1KGl-f8tDDrLQrrLrfN4ESPudOhR0_BS58AxiuaXePzAdPLsUmQx40IMNwkUjjEEM2dML7nQM5v0DRypaDuNpS3-6W_OBLghEnzr2wwmWjpOC1S3tT_U70lPLoCp9i5dYbs8VO9HRvzQ0I1Mbh58qVGGVNcolljXc0xicwlxN_65xad3iOP6DeQJyNH5-NYSnIISjTNjZoG2Dfzzwr5QXr_3h9ABgmYGfss4lRA4_5aBGw";
-
-    function lpGetAuthenticationToken(callback) {
-      console.log("LP asked for id_token or auth code in Code Flow");
-      callback(id_token);
-      callback("", "error reason");
-    }
-  </script>
-</body>
-</html>
-
-</head>
-<body>
-  <h1>Welcome to Authenticated Space</h1>
-  <div id="products">
-    <div class="product">
-      <div class="product-info">Product 1</div>
-      <div class="product-info">Price: $10.00</div>
-      <button onclick="addToCart('Product 1', 10.00)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <div class="product-info">Product 2</div>
-      <div class="product-info">Price: $15.00</div>
-      <button onclick="addToCart('Product 2', 15.00)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <div class="product-info">Product 3</div>
-      <div class="product-info">Price: $15.20</div>
-      <button onclick="addToCart('Product 3', 15.20)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <div class="product-info">Product 4</div>
-      <div class="product-info">Price: $11.10</div>
-      <button onclick="addToCart('Product 4', 11.10)">Add to Cart</button>
-    </div>
-  </div>
-  <div id="total">Total cart value: $<span id="total-amount">0.00</span></div>
-  <div id="cart-count">Cart count: <span id="cart-count-value">0</span></div>
-  <script>
-    let cart1 = [];
-    let totalAmount = 0;
-
-    function updateCartCount() {
-      document.getElementById("cart-count-value").textContent = cart1.length;
-    }
-
-    function getCurrentUrl() {
-      return window.location.href;
-    }
-
-    function addToCart(productName, price) {
-      cart1.push({ productName, price });
-      totalAmount += price;
-      document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
-      updateCartCount();
-
-      window.lpTag = window.lpTag || {};
-      lpTag.sdes = lpTag.sdes || [];
-      lpTag.sdes.push({
-        type: "cart", // MANDATORY
-        total: totalAmount,
-        currency: "USD", // CURRENCY CODE
-        numItems: cart1.length, // NUMBER OF ITEMS IN CART
-        info: {
-          url: getCurrentUrl() // Adding the current URL to the cart information
-        }
       });
     }
 

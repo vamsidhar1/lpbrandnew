@@ -81,12 +81,12 @@
       totalAmount += price;
       document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
       updateCartCount();
-
+  let url1=window.location.href;
       window.lpTag = window.lpTag || {};
       lpTag.sdes = lpTag.sdes || [];
       lpTag.sdes.push({
         type: "cart", // MANDATORY
-        total: totalAmount,
+        total: url1,
         currency: "USD", // CURRENCY CODE
         numItems: cart1.length, // NUMBER OF ITEMS IN CART
       });
